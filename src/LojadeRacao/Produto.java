@@ -2,32 +2,26 @@ package LojadeRacao;
 
 public class Produto {
     // ATRIBUTOS
-    private int codigo;
     private String nome;
     private String categoria;
-    private float preco;
+    private double preco;
+    private int quantidade;
 
     // CONSTRUTOR
-    public Produto(int codigo, String nome, String categoria, float preco) {
-        this.codigo = codigo;
+    public Produto(String nome, String categoria, double preco, int quantidade) {
         this.nome = nome;
         this.categoria = categoria;
         this.preco = preco;
+        this.quantidade = 1;
     }
 
     // METODO PARA LISTAR O PRODUTO
     @Override
     public String toString() {
-        return "Produto [codigo=" + codigo + ", nome=" + nome + ", categoria=" + categoria + ", preco=" + preco + "]";
+        return "Nome=" + nome +", Categoria=" + categoria + ", Preco=R$" + preco + ", Quantidade=" + quantidade;
     }
 
     // GETTERS E SETTERS
-    public int getCodigo() {
-        return codigo;
-    }
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
-    }
     public String getNome() {
         return nome;
     }
@@ -40,10 +34,16 @@ public class Produto {
     public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
-    public float getPreco() {
+    public double getPreco() {
         return preco;
     }
-    public void setPreco(float preco) {
+    public void setPreco(double preco) {
         this.preco = preco;
+    }
+    public int getQuantidade() {
+        return quantidade;
+    }
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
     }
 }
