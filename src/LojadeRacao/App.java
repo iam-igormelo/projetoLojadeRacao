@@ -2,14 +2,13 @@ package LojadeRacao;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        // Produto p1 = new Produto("Pedigree", "Cachorro", 45.20f);
-        // Produto p2 = new Produto("Whiskas", "Gato", 30.50f);
-        // Produto p3 = new Produto("Nativos", "Passaro", 21.10f);
-        // Produto p4 = new Produto("Friskies", "Gato", 25.70f);
-        // Produto p5 = new Produto("Dog Chow", "Cachorro", 41.20f);
-
-
         Estoque estoque = new Estoque();
+
+        // "Pedigree", "Cachorro", 45.20
+        // "Whiskas", "Gato", 30.50
+        // "Nativos", "Passaro", 21.10
+        // "Friskies", "Gato", 25.70
+        // "Dog Chow", "Cachorro", 41.20
 
         // Cadastrando produtos
         estoque.cadastrarProduto("Pedigree", "Cachorro", 45.20);
