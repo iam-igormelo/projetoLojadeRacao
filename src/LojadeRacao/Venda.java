@@ -5,35 +5,49 @@ import java.time.format.DateTimeFormatter;
 
 public class Venda {
     // ATRIBUTOS
-    private String dataVenda;
-    private Produto produto;
+    private String nome;
+    private String categoria;
+    private double preco;
     private int quantidade;
-    private double valor;
+    private String dataVenda;
 
     // CONSTRUTOR
-    public Venda(Produto produto, int quantidade, double valor) {
-        this.produto = produto;
+    public Venda(String nome, int quantidade) {
+        this.nome = nome;
         this.quantidade = quantidade;
-        this.valor = valor;
         LocalDateTime data = LocalDateTime.now(); // PEGA A DATA E HORA ATUAL DO SISTEMA
         DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"); // CRIA UMA FORMATACAO MAIS LEGIVEL PARA A DATA E HORA
         this.dataVenda = data.format(formato);
     }
 
-    public String getDataVenda() {
-        return dataVenda;
+    // METODO PARA LISTAR A VENDA
+    @Override
+    public String toString() {
+        return "Nome=" + nome +", Quantidade=" + quantidade + ", Data=" + dataVenda;
     }
 
-    public void setDataVenda(String dataVenda) {
-        this.dataVenda = dataVenda;
+    public String getNome() {
+        return nome;
     }
 
-    public Produto getProduto() {
-        return produto;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public void setProduto(Produto produto) {
-        this.produto = produto;
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    public double getPreco() {
+        return preco;
+    }
+
+    public void setPreco(double preco) {
+        this.preco = preco;
     }
 
     public int getQuantidade() {
@@ -44,12 +58,12 @@ public class Venda {
         this.quantidade = quantidade;
     }
 
-    public double getValor() {
-        return valor;
+    public String getDataVenda() {
+        return dataVenda;
     }
 
-    public void setValor(double valor) {
-        this.valor = valor;
+    public void setDataVenda(String dataVenda) {
+        this.dataVenda = dataVenda;
     }
     
 }

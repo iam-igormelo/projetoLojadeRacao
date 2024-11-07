@@ -1,6 +1,6 @@
 package LojadeRacao;
 
-public class Funcionario {
+public class Funcionario extends Estoque {
     private String nome;
     private String login;
     private String senha;
@@ -12,16 +12,6 @@ public class Funcionario {
         this.login = login;
         this.senha = senha;
     }
-
-    // METODOS
-    public void cadastrarProduto(String nome, String categoria, float preco) {
-  
-    }
-
-    public void realizarVenda(Produto produto, int quantidade, double valor) {
-
-    }
-
 
     // GETTERS E SETTERS
     public String getNome() {

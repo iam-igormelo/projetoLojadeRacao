@@ -12,7 +12,7 @@ public class Produto {
         this.nome = nome;
         this.categoria = categoria;
         this.preco = preco;
-        this.quantidade = 1;
+        this.quantidade = quantidade;
     }
 
     // METODO PARA LISTAR O PRODUTO
