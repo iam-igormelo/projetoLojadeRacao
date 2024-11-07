@@ -14,6 +14,7 @@ public class Funcionario extends Estoque {
     }
 
     public void realizarVenda(String nome, int quantidade) {
+        System.out.println("VENDA REALIZADA!");
         removerProduto(nome, quantidade);
         historico.registrarVenda(nome, quantidade);
     }
