@@ -41,7 +41,7 @@ public class Estoque {
                     estoque.remove(produto);
                     System.out.println("Produto removido: " + produto);
                 } else {
-                    System.out.println("Nao tem produto suficiente no estoque, resta(m) apenas " + produto.getQuantidade());
+                    System.out.println("Nao tem produto " + produto.getNome() + " suficiente no estoque, resta(m) apenas " + produto.getQuantidade() + " unidade(s)");
                 }
                 return; // Interrompe o método
             } 

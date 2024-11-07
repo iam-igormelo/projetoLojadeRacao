@@ -34,5 +34,11 @@ public class Main {
 
         // verificando estoque
         vendedor.verEstoque();
+
+        // removendo mais produto do que tem no estoque
+        vendedor.removerProduto("Pedigree", 30);
+
+        // verificando estoque
+        vendedor.verEstoque();
     }
 }
