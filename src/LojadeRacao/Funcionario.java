@@ -4,13 +4,22 @@ public class Funcionario extends Estoque {
     private String nome;
     private String login;
     private String senha;
-    private Estoque estoque;
+    private HistoricoVenda historico = new HistoricoVenda();
 
     // CONSTRUTOR
     public Funcionario(String nome, String login, String senha) {
         this.nome = nome;
         this.login = login;
         this.senha = senha;
+    }
+
+    public void realizarVenda(String nome, int quantidade) {
+        removerProduto(nome, quantidade);
+        historico.registrarVenda(nome, quantidade);
+    }
+
+    public void verHistorico() {
+        historico.verHistorico();
     }
 
     // GETTERS E SETTERS
@@ -36,13 +45,5 @@ public class Funcionario extends Estoque {
 
     public void setSenha(String senha) {
         this.senha = senha;
-    }
-
-    public Estoque getEstoque() {
-        return estoque;
-    }
-
-    public void setEstoque(Estoque estoque) {
-        this.estoque = estoque;
     }
 }

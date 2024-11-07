@@ -2,8 +2,7 @@ package LojadeRacao;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        Estoque estoque = new Estoque();
-        HistoricoVenda historico = new HistoricoVenda();
+        Funcionario vendedor = new Funcionario("Marcos", "marcos2024", "marcos123");
 
         // "Pedigree", "Cachorro", 45.20
         // "Whiskas", "Gato", 30.50
@@ -12,29 +11,31 @@ public class Main {
         // "Dog Chow", "Cachorro", 41.20
 
         // Cadastrando produtos
-        estoque.cadastrarProduto("Pedigree", "Cachorro", 45.20, 3);
-        estoque.cadastrarProduto("Whiskas", "Gato", 30.50, 3);
-        estoque.cadastrarProduto("Pedigree", "Cachorro", 45.20, 4);
-        estoque.cadastrarProduto("Pedigree", "Cachorro", 45.20, 10);
+        vendedor.cadastrarProduto("Pedigree", "Cachorro", 45.20, 3);
+        vendedor.cadastrarProduto("Whiskas", "Gato", 30.50, 3);
+        vendedor.cadastrarProduto("Pedigree", "Cachorro", 45.20, 4);
+        vendedor.cadastrarProduto("Pedigree", "Cachorro", 45.20, 10);
 
-        // Listando produtos
-        estoque.listarProdutos();
+        // vendo estoque
+        vendedor.verEstoque();
 
         // Removendo produtos
-        estoque.removerProduto("Pedigree", 1);
-        estoque.removerProduto("Pedigree", 2);
-        estoque.removerProduto("Whiskas", 3);
+        vendedor.removerProduto("Pedigree", 1);
+        vendedor.removerProduto("Pedigree", 2);
+        vendedor.removerProduto("Whiskas", 3);
 
-        // Listando novamente
-        estoque.listarProdutos();
+        // verificando estoque
+        vendedor.verEstoque();
 
         // registrando venda
-        historico.registrarVenda("Pedigree", 2);
-        historico.registrarVenda("Pedigree", 3);
-        historico.registrarVenda("Pedigree", 1);
+        vendedor.realizarVenda("Pedigree", 2);
+        vendedor.realizarVenda("Pedigree", 3);
+        vendedor.realizarVenda("Pedigree", 1);
 
         // listando o historico de vendas
-        historico.verHistorico();
+        vendedor.verHistorico();
 
+        // Listando produtos
+        vendedor.verEstoque();
     }
 }

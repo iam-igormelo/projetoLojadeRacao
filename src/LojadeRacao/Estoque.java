@@ -41,7 +41,7 @@ public class Estoque {
         System.out.println("Produto não encontrado.");
     }
 
-    public void listarProdutos() {
+    public void verEstoque() {
         System.out.println("======================= PRODUTOS EM ESTOQUE =======================");
         for(Produto produto : estoque) {
             System.out.println(produto);
