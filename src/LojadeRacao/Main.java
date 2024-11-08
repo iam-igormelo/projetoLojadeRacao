@@ -1,44 +1,78 @@
 package LojadeRacao;
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) throws Exception {
-        Funcionario vendedor = new Funcionario("Marcos", "marcos2024", "marcos123");
+        Funcionario funcionario = new Funcionario("Marcos", "marcos2024", "marcos123");
+        Scanner scanner = new Scanner(System.in);
+        boolean menu = true;
 
-        // verificando estoque
-        vendedor.verEstoque();
+        while(menu){
+            System.out.println("================================");
+            System.out.println("===== BEM VINDO AO PETFOOD =====");
+            System.out.println("================================");
+            System.out.println("1. Realizar Venda.");
+            System.out.println("2. Ver Estoque.");
+            System.out.println("3. Ver Historico.");
+            System.out.println("4. Cadastrar Produto.");
+            System.out.println("5. Remover Produto.");
+            System.out.println("6. Sair.");
+            System.out.print("Escolha um opcao: ");
+            int opcaoMenu = scanner.nextInt();
+            if(opcaoMenu == 1) {
 
-        // removendo produtos
-        vendedor.removerProduto("Pedigree", 1);
-        vendedor.removerProduto("Pedigree", 2);
-        vendedor.removerProduto("Whiskas", 3);
+            } else if(opcaoMenu == 2) {
+                funcionario.verEstoque();
+            } else if(opcaoMenu == 3) {
+                funcionario.verHistorico();
+            } else if(opcaoMenu == 4) {
+                System.out.println("Qual produto deseja cadastrar?");
+            } else if(opcaoMenu == 5) {
+                System.out.println("Qual produto deseja remover?");
+            } else if(opcaoMenu == 6) {
+                menu = false;
+            } else {
+                System.out.println("Opcao invalida!");
+            }
+        }
 
-        // verificando estoque
-        vendedor.verEstoque();
+        scanner.close();
+        System.out.println("PROGRAMA ENCERRADO");
 
-        // realizando venda
-        vendedor.realizarVenda("Pedigree", 2);
-        vendedor.realizarVenda("Pedigree", 3);
-        vendedor.realizarVenda("Pedigree", 1);
+        // funcionario.verEstoque();
 
-        // verificando historico de vendas
-        vendedor.verHistorico();
+        // funcionario.removerProduto("Pedigree", 1);
+        // funcionario.removerProduto("Pedigree", 2);
+        // funcionario.removerProduto("Whiskas", 3);
 
-        // verificando estoque
-        vendedor.verEstoque();
+        // funcionario.verEstoque();
 
-        // cadastrando produtos
-        vendedor.cadastrarProduto("Pedigree", "Cachorro", 45.20, 3);
-        vendedor.cadastrarProduto("Whiskas", "Gato", 30.50, 3);
-        vendedor.cadastrarProduto("Pedigree", "Cachorro", 45.20, 4);
-        vendedor.cadastrarProduto("Pedigree", "Cachorro", 45.20, 10);
+        // funcionario.realizarVenda("Pedigree", 2);
+        // funcionario.realizarVenda("Pedigree", 3);
+        // funcionario.realizarVenda("Pedigree", 1);
 
-        // verificando estoque
-        vendedor.verEstoque();
+        // funcionario.verHistorico();
 
-        // removendo mais produto do que tem no estoque
-        vendedor.removerProduto("Pedigree", 30);
+        // funcionario.verEstoque();
 
-        // verificando estoque
-        vendedor.verEstoque();
+        // funcionario.cadastrarProduto("Pedigree", "Cachorro", 45.20, 3);
+        // funcionario.cadastrarProduto("Whiskas", "Gato", 30.50, 3);
+        // funcionario.cadastrarProduto("Pedigree", "Cachorro", 45.20, 4);
+        // funcionario.cadastrarProduto("Pedigree", "Cachorro", 45.20, 10);
+
+        // funcionario.verEstoque();
+
+        // funcionario.removerProduto("Pedigree", 30);
+
+        // funcionario.verEstoque();
+
+        // funcionario.removerProduto("Pedigree", 22);
+
+        // funcionario.verEstoque();
+
+        // funcionario.realizarVenda("Pedigree", 22);
+
+        // funcionario.verEstoque();
     }
 }

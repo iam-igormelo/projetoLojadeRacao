@@ -1,5 +1,6 @@
 package LojadeRacao;
 
+
 public class Funcionario extends Estoque {
     private String nome;
     private String login;
@@ -14,9 +15,12 @@ public class Funcionario extends Estoque {
     }
 
     public void realizarVenda(String nome, int quantidade) {
-        System.out.println("VENDA REALIZADA!");
-        removerProduto(nome, quantidade);
-        historico.registrarVenda(nome, quantidade);
+        if(removerProduto(nome, quantidade) == 1) {
+            System.out.println("VENDA REALIZADA!");
+            removerProduto(nome, quantidade);
+            historico.registrarVenda(nome, quantidade);
+        }
+        System.out.println("A venda nao pode ser realizada.");
     }
 
     public void verHistorico() {

@@ -29,24 +29,27 @@ public class Estoque {
         System.out.println("Novo produto cadastrado com sucesso: " + novoProduto);
     }
 
-    public void removerProduto(String nome, int quantidade) {
+    public int removerProduto(String nome, int quantidade) {
         for (Produto produto : estoque) {
             if(produto.getNome().equalsIgnoreCase(nome)) {
                 if(produto.getQuantidade() >= quantidade) {
                     // Se o produto já existe, diminui a quantidade
                     produto.setQuantidade(produto.getQuantidade() - quantidade);
                     System.out.println(quantidade + " unidade(s) do produto " + produto.getNome() + " removido(s) do estoque, " + "Quantidade=" + produto.getQuantidade());
+                    return 1;
                 } else if(produto.getQuantidade() <= 0) {
                     // Caso contrário, remove o produto da lista
                     estoque.remove(produto);
-                    System.out.println("Produto removido: " + produto);
+                    System.out.println("O registro do produto " + produto.getNome() + " foi removido do estoque.");
+                    return 2;
                 } else {
                     System.out.println("Nao tem produto " + produto.getNome() + " suficiente no estoque, resta(m) apenas " + produto.getQuantidade() + " unidade(s)");
                 }
-                return; // Interrompe o método
+                return 3; // Interrompe o método
             } 
         }
-        System.out.println("Produto não encontrado.");
+        System.out.println("Produto nao encontrado.");
+        return 0;
     }
 
     public void verEstoque() {
