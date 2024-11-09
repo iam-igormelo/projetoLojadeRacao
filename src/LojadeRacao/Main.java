@@ -21,7 +21,7 @@ public class Main {
             System.out.print("Escolha um opcao: ");
             int opcaoMenu = scanner.nextInt();
             if(opcaoMenu == 1) {
-
+                System.out.println("Vendendo produto");
             } else if(opcaoMenu == 2) {
                 funcionario.verEstoque();
             } else if(opcaoMenu == 3) {
