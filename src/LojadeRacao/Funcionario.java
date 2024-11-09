@@ -14,13 +14,13 @@ public class Funcionario extends Estoque {
         this.senha = senha;
     }
 
-    public void realizarVenda(String nome, int quantidade) {
-        if(removerProduto(nome, quantidade) == 1) {
+    public void realizarVenda(String nome, String categoria, int quantidade) {
+        if(removerProduto(nome, categoria, quantidade) == 1) {
             System.out.println("VENDA REALIZADA!");
-            removerProduto(nome, quantidade);
             historico.registrarVenda(nome, quantidade);
+        } else {
+            System.out.println("A venda nao pode ser realizada.");
         }
-        System.out.println("A venda nao pode ser realizada.");
     }
 
     public void verHistorico() {

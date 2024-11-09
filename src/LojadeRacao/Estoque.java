@@ -15,23 +15,25 @@ public class Estoque {
 
     public void cadastrarProduto(String nome, String categoria, double preco, int quantidade) {
         for (Produto produto : estoque) {
-            if (produto.getNome().equalsIgnoreCase(nome)) {
+            if (produto.getNome().equalsIgnoreCase(nome) && produto.getCategoria().equalsIgnoreCase(categoria)) {
                 // Se o produto já existe, aumenta a quantidade
+                produto.setPreco(preco);
                 produto.setQuantidade(produto.getQuantidade() + quantidade);
                 System.out.println(quantidade + " unidade(s) do produto " + produto.getNome() + " adicionada(s) ao estoque, " + "Quantidade=" + produto.getQuantidade());
                 return;
+            } else {
+                // Se o produto não existe, cria um novo
+                Produto novoProduto = new Produto(nome, categoria, preco, quantidade);
+                estoque.add(novoProduto);
+                System.out.println("Novo produto cadastrado com sucesso: " + novoProduto);
+                return;
             }
         }
-
-        // Se o produto não existe, cria um novo
-        Produto novoProduto = new Produto(nome, categoria, preco, quantidade);
-        estoque.add(novoProduto);
-        System.out.println("Novo produto cadastrado com sucesso: " + novoProduto);
     }
 
-    public int removerProduto(String nome, int quantidade) {
+    public int removerProduto(String nome, String categoria, int quantidade) {
         for (Produto produto : estoque) {
-            if(produto.getNome().equalsIgnoreCase(nome)) {
+            if(produto.getNome().equalsIgnoreCase(nome) && produto.getCategoria().equalsIgnoreCase(categoria)) {
                 if(produto.getQuantidade() >= quantidade) {
                     // Se o produto já existe, diminui a quantidade
                     produto.setQuantidade(produto.getQuantidade() - quantidade);
