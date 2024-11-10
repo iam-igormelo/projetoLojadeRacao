@@ -8,6 +8,7 @@ public class Usuarios {
 
     static {
         usuarios.add(new Funcionario("Administrador", "admin", "admin123"));
+        usuarios.add(new Funcionario("Vendedor", "vendedor", "vendedor123"));
     }
 
     public static boolean verificarUsuario(String login, String senha) {
