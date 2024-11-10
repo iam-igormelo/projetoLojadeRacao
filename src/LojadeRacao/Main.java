@@ -25,6 +25,7 @@ public class Main {
 
             int opcaoMenu = 0;
             boolean validInput = false;
+            
             while (!validInput) {
                 try {
                     System.out.print("Escolha uma opção (1-6): ");
