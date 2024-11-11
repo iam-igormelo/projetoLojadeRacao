@@ -21,8 +21,33 @@ public class Usuarios {
         return false;
     }
 
-    public void novoUsuario(String nome, String login, String senha) {
+    public static void novoUsuario(String nome, String login, String senha) {
         Funcionario funcionario = new Funcionario(nome, login, senha);
         usuarios.add(funcionario);
+        System.out.println("Usuario cadastrado com sucesso!");
+    }
+
+    public static void removerUsuario(String nome) {
+        if (nome.equalsIgnoreCase("Administrador")) {
+            System.out.println("Nao e possivel remover uma conta de administrador.");
+            return;
+        } else {
+            for (Funcionario funcionario : usuarios) {
+                if (funcionario.getNome().equalsIgnoreCase(nome)) {
+                    usuarios.remove(funcionario);
+                    System.out.println("Usuario removido com sucesso!");
+                    return;
+                }
+            }
+        }
+        System.out.println("Usuario nao encontrado!");
+    }
+
+    public static void verUsuarios() {
+        System.out.println("====================== USUARIOS CADASTRADOS =======================");
+        for(Funcionario funcionario : usuarios) {
+            System.out.println(funcionario);
+        }
+        System.out.println("===================================================================");
     }
 }

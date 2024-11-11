@@ -23,6 +23,11 @@ public class Funcionario extends Estoque {
         }
     }
 
+    @Override
+    public String toString() {
+        return "Nome=" + nome + ", login=" + login;
+    }
+
     public void verHistorico() {
         historico.verHistorico();
     }

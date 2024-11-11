@@ -15,17 +15,30 @@ public class Main extends Usuarios {
             System.out.println("===============================");
             System.out.println("BEM VINDO AO IMPERIO DAS RACOES");
             System.out.println("===============================");
-            System.out.print("USUARIO: ");
-            String nomeUsuario = scanner.nextLine();
-            System.out.print("SENHA: ");
-            String senhaUsuario = scanner.nextLine();
 
-            if(verificarUsuario(nomeUsuario, senhaUsuario) == false) {
-                System.out.print("\033[H\033[2J");
-                System.out.flush();
-                System.out.println("Login invalido, tente novamente!");
-            } else {
-                login = true;
+            boolean validInput = false;
+            while (!validInput) {
+                try {
+                    System.out.print("USUARIO: ");
+                    String nomeUsuario = scanner.nextLine();
+                    System.out.print("SENHA: ");
+                    String senhaUsuario = scanner.nextLine();
+
+                    if(verificarUsuario(nomeUsuario, senhaUsuario) == false) {
+                        System.out.print("\033[H\033[2J");
+                        System.out.flush();
+                        System.out.println("===============================");
+                        System.out.println("BEM VINDO AO IMPERIO DAS RACOES");
+                        System.out.println("===============================");
+                        System.out.println("Login invalido, tente novamente!");
+                    } else {
+                        login = true;
+                        validInput = true;
+                    }
+                } catch (NullPointerException e) {
+                    System.out.println("Usuario invalido! Por favor, tente novamente.");
+                    scanner.nextLine(); // Limpa o buffer após o erro de entrada
+                }
             }
 
             System.out.print("\033[H\033[2J");
@@ -45,16 +58,18 @@ public class Main extends Usuarios {
                 System.out.println("4. Cadastrar Produto.");
                 System.out.println("5. Remover Produto.");
                 if (usuarioLogado.getNome() == "Administrador") {
-                    System.out.println("6. Cadastrar Usuario");
-                    System.out.println("7. Deslogar.");
-                    System.out.println("8. Sair.");
+                    System.out.println("6. Cadastrar Usuario.");
+                    System.out.println("7. Remover Usuario.");
+                    System.out.println("8. Usuarios Cadastrados.");
+                    System.out.println("9. Deslogar.");
+                    System.out.println("10. Sair.");
                 } else {
                     System.out.println("6. Deslogar.");
                     System.out.println("7. Sair.");
                 }
                 
                 int opcaoMenu = 0;
-                boolean validInput = false;
+                validInput = false;
             
                 while (!validInput) {
                     try {
@@ -119,25 +134,58 @@ public class Main extends Usuarios {
                         usuarioLogado.removerProduto(nomeProduto, categProduto, quantProduto);
                         break;
                     case 6:
-                        System.out.print("\033[H\033[2J");
-                        System.out.flush();
                         if (usuarioLogado.getNome() == "Administrador") {
-                            System.out.println("Cadastrar novo usuario");
+                            System.out.println("Qual usuario deseja cadastrar?");
+                            System.out.print("Nome: ");
+                            String nomeNovoUsuario = scanner.nextLine();
+                            System.out.print("Login: ");
+                            String loginNovoUsuario = scanner.nextLine();
+                            System.out.print("Senha: ");
+                            String senhaNovoUsuario = scanner.nextLine();
+                            System.out.print("\033[H\033[2J");
+                            System.out.flush();
+                            novoUsuario(nomeNovoUsuario, loginNovoUsuario, senhaNovoUsuario);
                         } else {
-                            menu = false;
+                            System.out.print("\033[H\033[2J");
+                            System.out.flush();
                             login = false;
+                            menu = false;
                         }
                         break;
                     case 7:
-                        System.out.print("\033[H\033[2J");
-                        System.out.flush();
                         if (usuarioLogado.getNome() == "Administrador") {
-                            login = false;
+                            System.out.println("Qual usuario deseja remover?");
+                            System.out.print("Nome: ");
+                            String nomeNovoUsuario = scanner.nextLine();
+                            System.out.print("\033[H\033[2J");
+                            System.out.flush();
+                            removerUsuario(nomeNovoUsuario);
                         } else {
+                            System.out.print("\033[H\033[2J");
+                            System.out.flush();
                             menu = false;
                         }
                         break;
                     case 8:
+                        System.out.print("\033[H\033[2J");
+                        System.out.flush();
+                        if (usuarioLogado.getNome() == "Administrador") {
+                            verUsuarios();
+                        } else {
+                            menu = false;
+                        }
+                        break;
+                    case 9:
+                        System.out.print("\033[H\033[2J");
+                        System.out.flush();
+                        if (usuarioLogado.getNome() == "Administrador") {
+                            menu = false;
+                            login = false;
+                        } else {
+                            login = false;
+                        }
+                        break;
+                    case 10:
                         System.out.print("\033[H\033[2J");
                         System.out.flush();
                         if (usuarioLogado.getNome() == "Administrador") {
