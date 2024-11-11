@@ -76,7 +76,7 @@ public class Main extends Usuarios {
                         System.out.print("O que deseja fazer? ");
                         opcaoMenu = scanner.nextInt();
                         scanner.nextLine(); // Limpa o buffer
-                        validInput = true;  // Se a entrada for válida, sai do loop
+                        validInput = true;
                     } catch (InputMismatchException e) {
                         System.out.println("Opção inválida! Por favor, tente novamente.");
                         scanner.nextLine(); // Limpa o buffer após o erro de entrada
